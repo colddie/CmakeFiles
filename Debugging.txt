@@ -1,0 +1,63 @@
+------------------ Debugging -------------------------
+First, let's look at ways to debug a CMakeLists or other CMake file.
+Use tree to display all directories and files.
+
+
+------------------ Printing variables ------------------ 
+The time honored method of print statements looks like this in CMake:
+
+message(STATUS "MY_VARIABLE=${MY_VARIABLE}")
+However, a built in module makes this even easier:
+
+include(CMakePrintHelpers)
+cmake_print_variables(MY_VARIABLE)
+If you want to print out a property, this is much, much nicer! Instead of getting the properties
+ one by one of of each target (or other item with properties, such as SOURCES, DIRECTORIES, TESTS, 
+ or CACHE_ENTRIES - global properties seem to be missing for some reason), you can simply list them 
+ and get them printed directly:
+
+cmake_print_properties(
+    TARGETS my_target
+    PROPERTIES POSITION_INDEPENDENT_CODE
+)
+
+
+
+------------------ Tracing a run ------------------ 
+Have you wanted to watch exactly what happens in your CMake file, and when? The --trace-source="filename"
+ feature is fantastic. Every line run in the file that you give will be echoed to the screen when it is run, 
+ letting you follow exactly what is happening. There are related options as well, but they tend to bury you in output.
+
+For example:
+
+cmake -S . -B build --trace-source=CMakeLists.txt
+If you add --trace-expand, the variables will be expanded into their values.
+
+
+
+------------------ Building in debug mode ------------------ 
+For single-configuration generators, you can build your code with -DCMAKE_BUILD_TYPE=Debug to get debugging flags.
+ In multi-configuration generators, like many IDEs, you can pick the configuration in the IDE. There are distinct 
+ flags for this mode (variables ending in _DEBUG as opposed to _RELEASE), as well as a generator expression value 
+ CONFIG:Debug or CONFIG:Release.
+
+Once you make a debug build, you can run a debugger, such as gdb or lldb on it.
+
+
+
+------------------ Libraries ------------------ 
+You can determine the constituents of a static library using the GNU ar (archive) command — for example:
+ molloyd@beaglebone:~/exploringBB/extras/cmake/studentlib_static/build$ ar -t libtestStudent.a
+ Student.cpp.o
+
+You can also use the GNU nm command to list the symbols in object files and binaries. In this case, the 
+command lists the symbols in the student library and their types (e.g., T is code, U is undefined, R is 
+read-only data). This information can be very useful for debugging any problems that may occur with static libraries.
+
+You can use the ldd command to display the shared library dependencies:
+ molloyd@beaglebone:~/exploringBB/extras/cmake/studentlib_shared/build$ ldd libtestStudent.so
+ libstdc++.so.6 => /usr/lib/arm-linux-gnueabihf/libstdc++.so.6 (0xb6ea6000)
+ libm.so.6 => /lib/arm-linux-gnueabihf/libm.so.6 (0xb6e3a000)
+ libgcc_s.so.1 => /lib/arm-linux-gnueabihf/libgcc_s.so.1 (0xb6e16000)
+ libc.so.6 => /lib/arm-linux-gnueabihf/libc.so.6 (0xb6d31000)
+ /lib/ld-linux-armhf.so.3 (0xb6f6b000)
