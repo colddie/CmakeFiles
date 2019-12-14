@@ -1,0 +1,52 @@
+# Sample .bashrc for SuSE Linux
+# Copyright (c) SuSE GmbH Nuernberg
+
+# There are 3 different types of shells in bash: the login shell, normal shell
+# and interactive shell. Login shells read ~/.profile and interactive shells
+# read ~/.bashrc; in our setup, /etc/profile sources ~/.bashrc - thus all
+# settings made here will also take effect in a login shell.
+#
+# NOTE: It is recommended to make language settings in ~/.profile rather than
+# here, since multilingual X sessions would not work properly if LANG is over-
+# ridden in every subshell.
+
+# Some applications read the EDITOR variable to determine your favourite text
+# editor. So uncomment the line below and enter the editor of your choice :-)
+#export EDITOR=/usr/bin/vim
+#export EDITOR=/usr/bin/mcedit
+
+# For some news readers it makes sense to specify the NEWSSERVER variable here
+#export NEWSSERVER=your.news.server
+
+# If you want to use a Palm device with Linux, uncomment the two lines below.
+# For some (older) Palm Pilots, you might need to set a lower baud rate
+# e.g. 57600 or 38400; lowest is 9600 (very slow!)
+#
+#export PILOTPORT=/dev/pilot
+#export PILOTRATE=115200
+
+test -s ~/.alias && . ~/.alias || true
+export PATH=$PATH:/storage0/home/tsun/bin/IDL86/harris/envi54/idl/bin
+export PATH=$PATH:/storage0/home/tsun/bin
+export PATH=$PATH:/storage0/home/tsun/bin/git-2.9.5/bin
+export PATH=$PATH:/storage0/home/tsun/bin/elastix-bin/bin
+export PATH=$PATH:/storage0/home/tsun/bin/RTK-1.4.0/install/bin
+export PATH=$PATH:/storage0/home/tsun/bin
+export PATH=$PATH:/storage0/home/tsun/bin/dcmtk-3.6.4/install/bin
+export PATH=$PATH:/storage0/home/tsun/bin/plastimatch-1.7.3/install/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/storage0/home/tsun/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/storage0/home/tsun/bin/elastix-develop/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/storage0/home/tsun/bin/InsightToolkit-4.9.1/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/storage0/home/tsun/bin/InsightToolkit-4.13.1/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/storage0/home/tsun/bin/RTK-1.4.0/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/storage0/home/tsun/bin/plastimatch-1.7.3/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/storage0/home/tsun/bin/dcmtk-3.6.4/install/lib64
+
+alias idl=/storage0/home/tsun/bin/IDL86/envi54/idl/bin/idl
+alias idlde=/storage0/home/tsun/bin/IDL86/envi54/idl/bin/idlde
+alias harris=/storage0/home/tsun/bin/IDL86/envi54/idl/bin/harrislicense
+alias plastimatch=/storage0/home/tsun/bin/plastimatch-1.7.3/install/bin/plastimatch
+alias mgh='cd /storage0/home/tsun/code/idl/mgh'
+alias sedata='cd /storage0/home/sedata'
+alias data='cd /storage1/tsun'
+alias matlab='/usr/local/camis/MATLAB/R2018a/bin/matlab'
