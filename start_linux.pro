@@ -19,6 +19,11 @@ if !version.os eq 'Win32' $
         '/home/tsun/code/idl/transfer/BHC' + delim + $   
         ;'/storage0/home/tsun/code/idl/transfer/example' + delim + $  
 	    	'/home/tsun/code/idl/coyoteprograms/coyote' + delim + $
+			'/home/tsun/code/idl/IDL_RIT_Salvaggio' + delim + $
+      '/home/tsun/code/idl/_mperrin' + delim + $
+      '/home/tsun/code/idl/starfinder/pro' + delim + $
+      '/home/tsun/code/idl/astron/pro' + delim + $
+      '/home/tsun/code/idl/cmtotal' + delim + $
 	    	;proc_dir + '/RECONSTRUCTION_TAO/idl/pro' + delim + $ 	
         proc_dir + '/idl' + delim + $
         proc_dir + '/GENERAL/idl/pro' + delim + $
