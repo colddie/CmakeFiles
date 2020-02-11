@@ -8,6 +8,7 @@ addpath(genpath('/home/tsun/code/matlab/REST_V1.8_130615'))
 % addpath(genpath('/home/tsun/code/matlab/PETRECON_MP24_R03_REL_1_28_MRAC_pw-BestToolboxEver01242017/PETRECON_MP24_R03_REL_1_28_MRAC/petrecon'))
 addpath(genpath('/home/tsun/code/matlab/Duetto/DUETTO_REL1.1.3/duetto'))
 addpath(genpath('/home/tsun/code/matlab/PETRECON_MP24_R03_REL_1_28_MRAC_pw-BestToolboxEver01242017/PETRECON_MP24_R03_REL_1_28_MRAC/petrecon/unlist'))
+addpath(genpath('/home/tsun/code/matlab/PETRECON_MP24_R03_REL_1_28_MRAC_pw-BestToolboxEver01242017/PETRECON_MP24_R03_REL_1_28_MRAC/petrecon/io_utils'))
 addpath(genpath('/home/tsun/code/matlab/nm_signa'))
 run('/home/tsun/code/matlab/fessler/irt/setup.m')
 
