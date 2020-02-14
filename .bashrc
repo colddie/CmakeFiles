@@ -105,6 +105,7 @@ alias cmake='/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin/cmake'
 alias ccmake='/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin/ccmake'
 alias matlab2018='/cm/shared/apps/MATLAB/R2018a/bin/matlab'
 alias matlab2013='/cm/shared/apps/MATLAB/R2013a/bin/matlab'
+alias matlab2018b='/home/tsun/bin/matlab2018/bin/matlab'
 
 FSLDIR=/home/tsun/bin/fsl/install
 . ${FSLDIR}/etc/fslconf/fsl.sh
