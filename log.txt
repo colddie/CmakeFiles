@@ -9308,3 +9308,61 @@ params = parseInputs(varargin{:});
 Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('motiondetection', 'G:\onedrivedata\phd\dental\uz\motiondetection.m', 12)" style="font-weight:bold">motiondetection</a> (<a href="matlab: opentoline('G:\onedrivedata\phd\dental\uz\motiondetection.m',12,0)">line 12</a>)
     im1=imresize(im1,4);
 } 
+load_nii
+{Undefined function or variable 'load_nii'.
+} 
+load_nii
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load_nii', 'D:\working\matlab\nifti20140122\load_nii.m', 89)" style="font-weight:bold">load_nii</a> (<a href="matlab: opentoline('D:\working\matlab\nifti20140122\load_nii.m',89,0)">line 89</a>)
+Usage: nii = load_nii(filename, [img_idx], [dim5_idx], [dim6_idx], [dim7_idx],
+[old_RGB], [tolerance], [preferredForm])
+} 
+V=load_nii('mouse_095.nii');
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load_nii_hdr', 'D:\working\matlab\nifti20140122\load_nii_hdr.m', 32)" style="font-weight:bold">load_nii_hdr</a> (<a href="matlab: opentoline('D:\working\matlab\nifti20140122\load_nii_hdr.m',32,0)">line 32</a>)
+Cannot find file "mouse_095.nii".
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load_nii', 'D:\working\matlab\nifti20140122\load_nii.m', 172)" style="font-weight:bold">load_nii</a> (<a href="matlab: opentoline('D:\working\matlab\nifti20140122\load_nii.m',172,0)">line 172</a>)
+   [nii.hdr,nii.filetype,nii.fileprefix,nii.machine] = load_nii_hdr(filename);
+} 
+V=load_nii('mouse_915.nii');
+V
+
+V = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+           hdr: [1×1 struct]
+      filetype: 2
+    fileprefix: 'mouse_915'
+       machine: 'ieee-le'
+           img: [105×54×153 single]
+      original: [1×1 struct]
+
+V.hdr
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+      hk: [1×1 struct]
+    dime: [1×1 struct]
+    hist: [1×1 struct]
+
+roi=load_nii('bladder-roi.nii');
+roi
+
+roi = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+           hdr: [1×1 struct]
+      filetype: 2
+    fileprefix: 'bladder-roi'
+       machine: 'ieee-le'
+           img: [105×54×153 single]
+      original: [1×1 struct]
+
+view3dgui(roi.img)
+view3dgui(V.img)
+clc
+clear
+exit

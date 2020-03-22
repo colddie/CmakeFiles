@@ -13,4 +13,4 @@ addpath(genpath('/home/tsun/code/matlab/duetto_v02.04/duetto'))
 addpath(genpath('/home/tsun/code/matlab/nm_signa'))
 run('/home/tsun/code/matlab/fessler/irt/setup.m')
 
-diary('log.txt')
+diary('matlablog.txt')

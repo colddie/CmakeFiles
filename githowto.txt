@@ -1,0 +1,41 @@
+
+Ignore large file
+touch .gitignore
+find ./* -size +100M | cat >> .gitignore
+
+Execute Update
+git checkout master
+git hist
+git status
+git add .
+git commit -a -m "update"
+git push -u origin master
+
+Unstage tracked files
+git reset HEAD 
+
+Remove cache from git history (modify commit)
+git rm --cached path/to/your/big/file
+git commit --amend -CHEAD
+git push
+
+
+Getting older version
+git hist
+git checkout <hash>
+cat hello.html
+git checkout master
+cat hello.html
+
+Back to last commit (cancel commit)
+git revert HEAD
+
+Remove a commit
+git reset --hard v1
+git hist
+git hist --all
+
+
+
+Logging
+git log
