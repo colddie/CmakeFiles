@@ -1,7 +1,7 @@
 
 Ignore large file
 touch .gitignore
-find ./* -size +100M | cat >> .gitignore
+find ./* -size +1M | cat >> .gitignore
 
 Execute Update
 git checkout master
@@ -9,6 +9,7 @@ git hist
 git status
 git add .
 git commit -a -m "update"
+git remote add origin https://github.com/colddie/work.git
 git push -u origin master
 
 Unstage tracked files
@@ -21,7 +22,7 @@ git push
 
 
 Getting older version
-git hist
+git histgit 
 git checkout <hash>
 cat hello.html
 git checkout master
