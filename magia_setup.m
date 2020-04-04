@@ -1,0 +1,8 @@
+setenv('DATA_DIR','/home/tao/data/MK6240_datasets_for_Tao/SMK005/PET')
+setenv('MRI_DIR','/home/tao/data/MK6240_datasets_for_Tao/SMK005/MRI')
+setenv('SPM_DIR','/home/tao/code/matlab/spm12')
+setenv('FREESURFER_HOME','/usr/local/freesurfer')
+setenv('MAGIA_PATH','/home/tao/code/matlab/magia')
+setenv('MAGIA_ARCHIVE','/home/tao/code/work/template')
+setenv('FS_FINAL_DIR','/home/tao/data/MK6240_datasets_for_Tao/SMK005/fsfinal')
+setenv('FS_TEMP_DIR','/home/tao/data/MK6240_datasets_for_Tao/SMK005/fstemp')

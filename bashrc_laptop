@@ -1,0 +1,212 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+test -s ~/.alias && . ~/.alias || true
+
+#export CC=/cm/local/apps/gcc/7.2.0/bin/gcc
+#export CXX=/cm/local/apps/gcc/7.2.0/bin/c++
+
+#export CC=/usr/bin/gcc
+#export CXX=/usr/bin/c++
+
+FSLDIR=/home/tao/bin/fsl/install
+. ${FSLDIR}/etc/fslconf/fsl.sh
+PATH=${FSLDIR}/bin:${PATH}
+export FSLDIR PATH
+source $FSLDIR/etc/fslconf/fsl-devel.sh
+export FSLDEVDIR=$FSLDIR/
+
+export PATH=$PATH:/home/tao/bin/fsl/install/bin
+export PATH=$PATH:/home/tao/bin/RTK-1.4.0/build/install/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/RTK-1.4.0/build/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/RTK-1.4.0/build/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/dlib-19.19/build/dlib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/SimpleElastix/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/SimpleElastix/build/Elastix-build/bin
+export FREESURFER_HOME=/usr/local/freesurfer
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+export EIGEN3_INCLUDE_PATH=/home/tao/bin/eigen-3.3.7/Eigen/src
+alias sudo='sudo '
+alias imagej='/home/tao/bin/Fiji.app/ImageJ-linux64'
+alias smartgit='/home/tao/bin/smartgit/bin/smartgit.sh'
+alias vscode='code'
+
+#export PATH=$PATH:/home/tsun/IDL87/envi55/idl87/bin
+#export PATH=$PATH:/home/tsun/bin
+#export PATH=$PATH:/home/tsun/bin/git-2.9.5/bin
+#export PATH=$PATH:/home/tsun/bin/elastix-bin/bin
+#export PATH=$PATH:/home/tsun/bin/RTK-1.4.0/RTK-bin/install/bin
+#export PATH=$PATH:/home/tsun/bin/dcmtk-3.6.4/install/bin
+#export PATH=$PATH:/home/tsun/bin/plastimatch-1.7.3/install/bin
+#export PATH=$PATH:/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin
+#export PATH=$PATH:/home/tsun/bin/tpcclib-master/build/bin
+##export PATH=$PATH:/home/tsun/anaconda3/bin
+#export PATH=$PATH:/home/tsun/bin/PETPVC-master/bin
+#export PATH=$PATH:/home/tsun/bin/valgrind-3.15.0/build/bin
+#export PATH=$PATH:/cm/shared/apps/hdf5/1.10.1/bin
+#export VALGRIND_LIB=/home/tsun/bin/valgrind-3.15.0/build/lib/valgrind 
+#export PATH=$PATH:/home/tsun/bin/valgrind-3.15.0/build/lib/valgrind
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/valgrind-3.15.0/build/lib/valgrind
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/elastix-develop/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/elastix-5.0.0/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/ITK-4.9.1-bin/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/InsightToolkit-4.13.1/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/InsightToolkit-5.0.1/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/RTK-1.4.0/RTK-bin/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/plastimatch-1.7.3/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/dcmtk-3.6.4/install/lib64
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/cuda92/toolkit/9.2.88/targets/x86_64-linux/lib/stubs
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/cuda92/toolkit/9.2.88/targets/x86_64-linux/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/fsl/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/tpcclib-master/build/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/mcmc-master/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/armadillo-9.400.4/install/lib64
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/anaconda3/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/hdf5/1.10.1/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/openblas/0.2.20/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/dlib-19.18/lib64
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/libcmaes-master/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/local/apps/boost/current/lib64/
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/pagmo2-2.11.4/build/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/tbb/tbb2019_20191006oss/lib/intel64/gcc4.8
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/optim-master/install/lib
+#export DLIB_INCLUDE_PATH=/home/tsun/bin/dlib-19.18/include/dlib
+#export ARMA_INCLUDE_PATH=/home/tsun/bin/armadillo-9.400.4/install/include
+#export BOOST_INCLUDE_PATH=/cm/local/apps/boost/current/include
+#export PAGMO_INCLUDE_PATH=/home/tsun/bin/pagmo2-2.11.4/build/include
+#export EIGEN3_INCLUDE_PATH=/home/tsun/bin/eigen-eigen-323c052e1731/install/include/eigen3
+
+#alias matlab2014='/usr/local/MATLAB/R2014a/bin/matlab'
+#alias idl=/home/tsun/IDL87/envi55/idl87/bin/idl
+#alias idlde=/home/tsun/IDL87/envi55/idl87/bin/idlde
+#alias harris=/home/tsun/IDL87/envi55/idl87/bin/harrislicense
+#alias mpirun=/cm/shared/apps/openmpi/gcc/64/1.10.7/bin/mpirun
+#alias mgh='cd /storage0/home/tsun/code/idl/mgh'
+#alias sedata='cd /storage0/home/sedata'
+#alias data='cd /storage1/tsun'
+#alias imagej='/home/tsun/bin/Fiji.app/ImageJ-linux64'
+#alias cmake='/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin/cmake'
+#alias ccmake='/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin/ccmake'
+#alias matlab2018='/cm/shared/apps/MATLAB/R2018a/bin/matlab'
+#alias matlab2013='/cm/shared/apps/MATLAB/R2013a/bin/matlab'
+
+
+
+
+

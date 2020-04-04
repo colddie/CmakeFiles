@@ -1,8 +1,8 @@
 ;proc_dir = '//uz/data/Admin/Hermes/Soft/procnew/RESNEW'
 ;proc_dir = '//uz/data/Admin/ngesoftware/kul_nm_software'
 ;proc_dir = 'C:/working/idl/kul_nm_software_development'
-proc_dir = '/home/tao/code/kul'
-path_init = '/home/tao/code'
+proc_dir = '/home/tsun/code/kul_nm_software_development'
+path_init = '/home/tsun/code'
 
 ; Path
 ;===== 
