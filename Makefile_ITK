@@ -1,0 +1,263 @@
+include ${FSLCONFDIR}/default.mk
+#include depend.mk
+
+PROJNAME = fabber_core
+
+USRINCFLAGS = -I${INC_NEWMAT} -I${INC_PROB} -I${INC_BOOST} -DFABBER_SRC_DIR="\"${PWD}\"" -DFABBER_BUILD_DIR="\"${PWD}\""  \
+# -I/home/tsun/bin/InsightToolkit-4.9.1/install/include/ITK-4.9
+
+USRLDFLAGS = -L${LIB_NEWMAT} -L${LIB_PROB} -L/lib64 
+# -L/home/tsun/bin/InsightToolkit-4.9.1/install/lib
+
+FSLVERSION= $(shell cat ${FSLDIR}/etc/fslversion | head -c 1)
+ifeq ($(FSLVERSION), 5) 
+  NIFTILIB = -lfslio -lniftiio 
+else 
+  NIFTILIB = -lNewNifti
+endif
+
+LIBS = -lutils -lopenblas -lnewimage -lmiscmaths -lprob -lnewmat ${NIFTILIB} -lznz -lz -ldl
+TESTLIBS = -lgtest -lpthread
+# ITKLIBS = -lITKBiasCorrection-4.9        \
+# -lITKBiasCorrection-4.9        \
+# -lITKBioCell-4.9        \
+# -lITKBioCell-4.9        \
+# -lITKCommon-4.9        \
+# -lITKCommon-4.9        \
+# -lITKDICOMParser-4.9        \
+# -lITKDICOMParser-4.9        \
+# -litkdouble-conversion-4.9        \
+# -litkdouble-conversion-4.9        \
+# -lITKEXPAT-4.9        \
+# -lITKEXPAT-4.9        \
+# -lITKFEM-4.9        \
+# -lITKFEM-4.9        \
+# -litkgdcmcharls-4.9        \
+# -litkgdcmcharls-4.9        \
+# -litkgdcmCommon-4.9        \
+# -litkgdcmCommon-4.9        \
+# -litkgdcmDICT-4.9        \
+# -litkgdcmDICT-4.9        \
+# -litkgdcmDSED-4.9        \
+# -litkgdcmDSED-4.9        \
+# -litkgdcmIOD-4.9        \
+# -litkgdcmIOD-4.9        \
+# -litkgdcmjpeg12-4.9        \
+# -litkgdcmjpeg12-4.9        \
+# -litkgdcmjpeg16-4.9        \
+# -litkgdcmjpeg16-4.9        \
+# -litkgdcmjpeg8-4.9        \
+# -litkgdcmjpeg8-4.9        \
+# -litkgdcmMEXD-4.9        \
+# -litkgdcmMEXD-4.9        \
+# -litkgdcmMSFF-4.9        \
+# -litkgdcmMSFF-4.9        \
+# -litkgdcmopenjpeg-4.9        \
+# -litkgdcmopenjpeg-4.9        \
+# -litkgdcmsocketxx-4.9        \
+# -litkgdcmsocketxx-4.9        \
+# -litkgdcmuuid-4.9        \
+# -litkgdcmuuid-4.9        \
+# -lITKgiftiio-4.9        \
+# -lITKgiftiio-4.9        \
+# -litkhdf5-4.9        \
+# -litkhdf5-4.9        \
+# -litkhdf5_cpp-4.9        \
+# -litkhdf5_cpp-4.9        \
+# -lITKIOBioRad-4.9        \
+# -lITKIOBioRad-4.9        \
+# -lITKIOBMP-4.9        \
+# -lITKIOBMP-4.9        \
+# -lITKIOCSV-4.9        \
+# -lITKIOCSV-4.9        \
+# -lITKIOGDCM-4.9        \
+# -lITKIOGDCM-4.9        \
+# -lITKIOGE-4.9        \
+# -lITKIOGE-4.9        \
+# -lITKIOGIPL-4.9        \
+# -lITKIOGIPL-4.9        \
+# -lITKIOHDF5-4.9        \
+# -lITKIOHDF5-4.9        \
+# -lITKIOImageBase-4.9        \
+# -lITKIOImageBase-4.9        \
+# -lITKIOIPL-4.9        \
+# -lITKIOIPL-4.9        \
+# -lITKIOJPEG-4.9        \
+# -lITKIOJPEG-4.9        \
+# -lITKIOLSM-4.9        \
+# -lITKIOLSM-4.9        \
+# -lITKIOMesh-4.9        \
+# -lITKIOMesh-4.9        \
+# -lITKIOMeta-4.9        \
+# -lITKIOMeta-4.9        \
+# -lITKIOMRC-4.9        \
+# -lITKIOMRC-4.9        \
+# -lITKIONIFTI-4.9        \
+# -lITKIONIFTI-4.9        \
+# -lITKIONRRD-4.9        \
+# -lITKIONRRD-4.9        \
+# -lITKIOPNG-4.9        \
+# -lITKIOPNG-4.9        \
+# -lITKIOSiemens-4.9        \
+# -lITKIOSiemens-4.9        \
+# -lITKIOSpatialObjects-4.9        \
+# -lITKIOSpatialObjects-4.9        \
+# -lITKIOStimulate-4.9        \
+# -lITKIOStimulate-4.9        \
+# -lITKIOTIFF-4.9        \
+# -lITKIOTIFF-4.9        \
+# -lITKIOTransformBase-4.9        \
+# -lITKIOTransformBase-4.9        \
+# -lITKIOTransformHDF5-4.9        \
+# -lITKIOTransformHDF5-4.9        \
+# -lITKIOTransformInsightLegacy-4.9        \
+# -lITKIOTransformInsightLegacy-4.9        \
+# -lITKIOTransformMatlab-4.9        \
+# -lITKIOTransformMatlab-4.9        \
+# -lITKIOVTK-4.9        \
+# -lITKIOVTK-4.9        \
+# -lITKIOXML-4.9        \
+# -lITKIOXML-4.9        \
+# -litkjpeg-4.9        \
+# -litkjpeg-4.9        \
+# -lITKKLMRegionGrowing-4.9        \
+# -lITKKLMRegionGrowing-4.9        \
+# -lITKLabelMap-4.9        \
+# -lITKLabelMap-4.9        \
+# -lITKMesh-4.9        \
+# -lITKMesh-4.9        \
+# -lITKMetaIO-4.9        \
+# -lITKMetaIO-4.9        \
+# -lITKniftiio-4.9        \
+# -lITKniftiio-4.9        \
+# -lITKNrrdIO-4.9        \
+# -lITKNrrdIO-4.9        \
+# -litkopenjpeg-4.9        \
+# -litkopenjpeg-4.9        \
+# -lITKOptimizers-4.9        \
+# -lITKOptimizers-4.9        \
+# -lITKOptimizersv4-4.9        \
+# -lITKOptimizersv4-4.9        \
+# -lITKPath-4.9        \
+# -lITKPath-4.9        \
+# -litkpng-4.9        \
+# -litkpng-4.9        \
+# -lITKPolynomials-4.9        \
+# -lITKPolynomials-4.9        \
+# -lITKQuadEdgeMesh-4.9        \
+# -lITKQuadEdgeMesh-4.9        \
+# -lITKReview-4.9        \
+# -lITKReview-4.9        \
+# -lITKSpatialObjects-4.9        \
+# -lITKSpatialObjects-4.9        \
+# -lITKStatistics-4.9        \
+# -lITKStatistics-4.9        \
+# -litksys-4.9        \
+# -litksys-4.9        \
+# -litktiff-4.9        \
+# -litktiff-4.9        \
+# -lITKTransform-4.9        \
+# -lITKTransform-4.9        \
+# -litkv3p_lsqr-4.9        \
+# -litkv3p_lsqr-4.9        \
+# -litkvcl-4.9        \
+# -litkvcl-4.9        \
+# -lITKVideoCore-4.9        \
+# -lITKVideoCore-4.9        \
+# -lITKVideoIO-4.9        \
+# -lITKVideoIO-4.9        \
+# -litkvnl-4.9        \
+# -litkvnl-4.9        \
+# -litkvnl_algo-4.9        \
+# -litkvnl_algo-4.9        \
+# -lITKVNLInstantiation-4.9        \
+# -lITKVNLInstantiation-4.9        \
+# -lITKVTK-4.9        \
+# -lITKVTK-4.9        \
+# -lITKWatersheds-4.9        \
+# -lITKWatersheds-4.9        \
+# -lITKznz-4.9        \
+# -lITKznz-4.9        \
+# -litkzlib-4.9        \
+# -litkv3p_netlib-4.9      \
+# -litkNetlibSlatec-4.9
+
+#
+# Executables
+#
+
+XFILES = fabber mvntool
+SCRIPTS = fabber_var
+
+# Sets of objects separated into logical divisions
+#nlm.o: itkNLMFilter.h itkNLMFilter.txx nlm.cxx nlm.h     # move from depend.mk
+# Basic objects - things that have nothing directly to do with inference
+BASICOBJS = tools.o rundata.o dist_mvn.o easylog.o fabber_capi.o version.o dist_gamma.o rundata_array.o 
+
+# Core objects - things that implement the framework for inference
+COREOBJS =  noisemodel.o fwdmodel.o inference.o fwdmodel_linear.o fwdmodel_poly.o convergence.o motioncorr.o priors.o transforms.o
+
+# Infernce methods
+INFERENCEOBJS = inference_vb.o inference_nlls.o covariance_cache.o
+
+# Noise models
+NOISEOBJS = noisemodel_white.o noisemodel_ar.o
+
+# Configuration
+CONFIGOBJS = setup.o factories.o
+
+# Library for executables
+EXECOBJS = rundata_newimage.o fabber_core.o
+
+# Executable main object
+CLIENTOBJS =  fabber_main.o
+
+# Unit tests
+TESTOBJS = test/fabbertest.o test/test_inference.o test/test_priors.o test/test_vb.o test/test_convergence.o test/test_commandline.o test/test_rundata.o
+
+# Everything together
+OBJS = ${BASICOBJS} ${COREOBJS} ${INFERENCEOBJS} ${NOISEOBJS} ${CONFIGOBJS} 
+
+# For debugging:
+#OPTFLAGS = -ggdb -Wall
+
+# Pass Git revision details
+GIT_SHA1:=$(shell git describe --dirty)
+GIT_DATE:=$(shell git log -1 --format=%ad --date=local)
+CXXFLAGS += -DGIT_SHA1=\"${GIT_SHA1}\" -DGIT_DATE="\"${GIT_DATE}\""
+
+# Targets
+
+# nlm.o : nlm.cxx nlm.h itkNLMFilter.h itkNLMFilter.txx LSDerivatives\itkLSDerivatives.h LSDerivatives\itkLSDerivatives.txx
+	# $(CXX) $(CXXFLAGS) -c  nlm.cxx nlm.h itkNLMFilter.h itkNLMFilter.txx LSDerivatives\itkLSDerivatives.h LSDerivatives\itkLSDerivatives.txx 
+
+all:	${XFILES} libfabbercore.a libfabberexec.a
+
+clean:
+	${RM} -f /tmp/fslgrot *.o mvn_tool/*.o *.a *.exe core fabber_test depend.mk
+
+cleana:
+	${RM} -f *.a *.exe core  fabber_test depend.mk
+
+mvntool: ${OBJS} mvn_tool/mvntool.o rundata_newimage.o 
+	${CXX} ${CXXFLAGS} ${LDFLAGS} -o $@ ${OBJS} mvn_tool/mvntool.o rundata_newimage.o ${LIBS}
+	#  ${ITKLIBS}
+
+# Build a fabber exectuable, this will have nothing but the generic models so it not practically useful for data analysis
+fabber: ${OBJS} ${EXECOBJS} ${CLIENTOBJS}
+	${CXX} ${CXXFLAGS} ${LDFLAGS} -o $@ ${OBJS} ${EXECOBJS} ${CLIENTOBJS} ${LIBS}
+	#  ${ITKLIBS}
+
+# Library build
+libfabbercore.a : ${OBJS}
+	${AR} -r $@ ${OBJS}
+
+libfabberexec.a : ${EXECOBJS} 
+	${AR} -r $@ ${EXECOBJS} 
+
+# Unit tests
+test: ${OBJS} ${EXECOBJS} ${CLIENTOBJS} ${TESTOBJS}
+	${CXX} ${CXXFLAGS} ${LDFLAGS} ${TESTINC} -o fabber_test ${OBJS} ${EXECOBJS} ${TESTOBJS} ${LIBS} ${TESTLIBS} 
+	# ${ITKLIBS}
+
+# DO NOT DELETE

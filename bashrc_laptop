@@ -131,81 +131,64 @@ export FSLDIR PATH
 source $FSLDIR/etc/fslconf/fsl-devel.sh
 export FSLDEVDIR=$FSLDIR/
 
+export PATH=$PATH:/home/tao/bin/tpcclib/build/bin
 export PATH=$PATH:/home/tao/bin/fsl/install/bin
 export PATH=$PATH:/home/tao/bin/RTK-1.4.0/build/install/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/RTK-1.4.0/build/install/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/RTK-1.4.0/build/install/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/dlib-19.19/build/dlib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/SimpleElastix/build/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tao/bin/SimpleElastix/build/Elastix-build/bin
+export PATH=$PATH:/home/tao/code/c_programs/brain_phantom-master
+export PATH=$PATH:/home/tao/code/c_programs/UnbiasedNonLocalMeans/bin/Linux
+export PATH=$PATH:/home/tao/bin/fsl/install/bin
+export PATH=$PATH:/home/tao/bin/PETPVC/build/install/bin
+export PATH=$PATH:/home/tao/bin/plastimatch-1.9.0/build
+
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/tpcclib/build/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/RTK-1.4.0/build/install/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/SimpleElastix/build/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/SimpleElastix/build/Elastix-build/bin
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/kernel
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/listmode/idl/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/listmode/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/mc_code/idl/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/mc_code/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/nonlocalmeans
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/registrationbase/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/rtkwrapper_gpu
+# export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/code/c_programs/tpcclib-master/build/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/armadillo-9.800.3/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/dlib-19.19/install/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/elastix-4.9.0/install/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/fsl/install/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/InsightToolkit-4.13.2/build/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/InsightToolkit-4.9.1/build/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/InsightToolkit-5.0.1/build/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/libcmaes-master/install/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/mcmc-master/install/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/optim-master/build/lib
+export LIBRARY_PATH=$LIBRARY_PATH:/home/tao/bin/pagmo2/build
+
+
+export ELASTIX_INCLUDE_PATH=/home/tao/bin/elastix-4.9.0/install/include
+export EIGEN3_INCLUDE_PATH=/home/tao/bin/eigen-3.3.7/Eigen/src
+export EIGEN_INCLUDE_PATH=/home/tao/bin/eigen-3.3.7
+export DLIB_INCLUDE_PATH=/home/tao/bin/dlib-19.19/install/include/dlib
+export ARMA_INCLUDE_PATH=/home/tao/bin/armadillo-9.800.3/include
+export BOOST_INCLUDE_PATH=/usr/include/boost
+export PAGMO_INCLUDE_PATH=/home/tao/bin/pagmo2/include
+export OPTIM_INCLUDE_PATH=/home/tao/bin/optim-master/include
+export MCMC_INCLUDE_PATH=/home/tao/bin/mcmc-master/include
+export SPLINE_USE_FILE=/home/tao/bin/spline-master/src
+export TPC_INCLUDE_PATH=/home/tao/bin/tpcclib/build/lib/include
+export CMAES_INCLUDE_PATH=/home/tao/bin/libcmaes-master/install/include/libcmaes
+export TPC_LIB_PATH=/home/tao/bin/tpcclib/build/lib
+export MCMC_LIB_PATH=/home/tao/bin/mcmc-master/install/lib
+
 export FREESURFER_HOME=/usr/local/freesurfer
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
-export EIGEN3_INCLUDE_PATH=/home/tao/bin/eigen-3.3.7/Eigen/src
+
 alias sudo='sudo '
 alias imagej='/home/tao/bin/Fiji.app/ImageJ-linux64'
 alias smartgit='/home/tao/bin/smartgit/bin/smartgit.sh'
 alias vscode='code'
-
-#export PATH=$PATH:/home/tsun/IDL87/envi55/idl87/bin
-#export PATH=$PATH:/home/tsun/bin
-#export PATH=$PATH:/home/tsun/bin/git-2.9.5/bin
-#export PATH=$PATH:/home/tsun/bin/elastix-bin/bin
-#export PATH=$PATH:/home/tsun/bin/RTK-1.4.0/RTK-bin/install/bin
-#export PATH=$PATH:/home/tsun/bin/dcmtk-3.6.4/install/bin
-#export PATH=$PATH:/home/tsun/bin/plastimatch-1.7.3/install/bin
-#export PATH=$PATH:/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin
-#export PATH=$PATH:/home/tsun/bin/tpcclib-master/build/bin
-##export PATH=$PATH:/home/tsun/anaconda3/bin
-#export PATH=$PATH:/home/tsun/bin/PETPVC-master/bin
-#export PATH=$PATH:/home/tsun/bin/valgrind-3.15.0/build/bin
-#export PATH=$PATH:/cm/shared/apps/hdf5/1.10.1/bin
-#export VALGRIND_LIB=/home/tsun/bin/valgrind-3.15.0/build/lib/valgrind 
-#export PATH=$PATH:/home/tsun/bin/valgrind-3.15.0/build/lib/valgrind
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/valgrind-3.15.0/build/lib/valgrind
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/elastix-develop/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/elastix-5.0.0/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/ITK-4.9.1-bin/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/InsightToolkit-4.13.1/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/InsightToolkit-5.0.1/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/RTK-1.4.0/RTK-bin/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/plastimatch-1.7.3/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/dcmtk-3.6.4/install/lib64
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/cuda92/toolkit/9.2.88/targets/x86_64-linux/lib/stubs
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/cuda92/toolkit/9.2.88/targets/x86_64-linux/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/fsl/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/tpcclib-master/build/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/mcmc-master/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/armadillo-9.400.4/install/lib64
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/anaconda3/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/hdf5/1.10.1/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/shared/apps/openblas/0.2.20/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/dlib-19.18/lib64
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/libcmaes-master/install/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cm/local/apps/boost/current/lib64/
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/pagmo2-2.11.4/build/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/tbb/tbb2019_20191006oss/lib/intel64/gcc4.8
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tsun/bin/optim-master/install/lib
-#export DLIB_INCLUDE_PATH=/home/tsun/bin/dlib-19.18/include/dlib
-#export ARMA_INCLUDE_PATH=/home/tsun/bin/armadillo-9.400.4/install/include
-#export BOOST_INCLUDE_PATH=/cm/local/apps/boost/current/include
-#export PAGMO_INCLUDE_PATH=/home/tsun/bin/pagmo2-2.11.4/build/include
-#export EIGEN3_INCLUDE_PATH=/home/tsun/bin/eigen-eigen-323c052e1731/install/include/eigen3
-
-#alias matlab2014='/usr/local/MATLAB/R2014a/bin/matlab'
-#alias idl=/home/tsun/IDL87/envi55/idl87/bin/idl
-#alias idlde=/home/tsun/IDL87/envi55/idl87/bin/idlde
-#alias harris=/home/tsun/IDL87/envi55/idl87/bin/harrislicense
-#alias mpirun=/cm/shared/apps/openmpi/gcc/64/1.10.7/bin/mpirun
-#alias mgh='cd /storage0/home/tsun/code/idl/mgh'
-#alias sedata='cd /storage0/home/sedata'
-#alias data='cd /storage1/tsun'
-#alias imagej='/home/tsun/bin/Fiji.app/ImageJ-linux64'
-#alias cmake='/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin/cmake'
-#alias ccmake='/home/tsun/bin/cmake-3.13.2-Linux-x86_64/bin/ccmake'
-#alias matlab2018='/cm/shared/apps/MATLAB/R2018a/bin/matlab'
-#alias matlab2013='/cm/shared/apps/MATLAB/R2013a/bin/matlab'
-
 
 
 
