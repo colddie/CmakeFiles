@@ -6,3 +6,7 @@ setenv('MAGIA_PATH','/home/tao/code/matlab/magia')
 setenv('MAGIA_ARCHIVE','/home/tao/code/work/template')
 setenv('FS_FINAL_DIR','/home/tao/data/MK6240_datasets_for_Tao/SMK005/fsfinal')
 setenv('FS_TEMP_DIR','/home/tao/data/MK6240_datasets_for_Tao/SMK005/fstemp')
+
+% setenv('SPM_DIR','/home/tao/data/')
+% setenv('FS_FINAL_DIR','/home/tao/data/')
+% setenv('FS_TEMP_DIR','/home/tao/data/')
