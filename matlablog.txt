@@ -62594,4 +62594,20 @@ Dicom_PET_dyn_1: Spatially smoothing the PET data before calculation of parametr
 29-Jun-2020 00:17:23 - Done
 
 Dicom_PET_dyn_1: Creating brainmask
-Dicom_PET_dyn_1: Starting modelin
+Dicom_PET_dyn_1: Starting modeling
+Starting Logan fit to 1205350 voxels... Ready.
+Dicom_PET_dyn_1: Finished with modeling
+Dicom_PET_dyn_1: Spatially normalizing the images to MNI space
+Dicom_PET_dyn_1: Spatially smoothing the normalized parametric images (FWHM = 2.000000)
+
+
+------------------------------------------------------------------------
+29-Jun-2020 00:18:05 - Running job #1
+------------------------------------------------------------------------
+29-Jun-2020 00:18:05 - Running 'Smooth'
+29-Jun-2020 00:18:05 - Done    'Smooth'
+29-Jun-2020 00:18:05 - Done
+
+Dicom_PET_dyn_1: Ready
+Archiving results of Dicom_PET_dyn_1...Deleting files (Dicom_PET_dyn_1)... Done.
+exit
