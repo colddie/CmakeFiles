@@ -17,4 +17,5 @@ addpath(genpath('/code/matlab/nm_signa'))
 run('/code/matlab/fessler/irt/setup.m')
 
 diary('matlablog.txt')
+datapath = '/data/easystore';
 

@@ -3,6 +3,7 @@
 ;proc_dir = 'C:/working/idl/kul_nm_software_development'
 proc_dir = '/code/kul'
 path_init = '/code'
+datapath = '/data/easystore'
 
 ; Path
 ;===== 
