@@ -18,6 +18,7 @@ if !version.os eq 'Win32' $
         path_init + '/idl/transfer/general' + delim + $
         path_init + '/idl/transfer/RECON' + delim + $
         path_init + '/idl/transfer/BHC' + delim + $   
+        path_init + '/idl/transfer/example' + delim + $
         ;'/storage0/home/tsun/code/idl/transfer/example' + delim + $  
 	    	path_init + '/idl/coyoteprograms/coyote' + delim + $
 			  path_init + '/idl/IDL_RIT_Salvaggio' + delim + $
