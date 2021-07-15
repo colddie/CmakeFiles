@@ -124,14 +124,16 @@ test -s ~/.alias && . ~/.alias || true
 #export CC=/usr/bin/gcc
 #export CXX=/usr/bin/c++
 
-FSLDIR=/bin/fsl/install
+FSLDIR=/usr/local/fsl
 . ${FSLDIR}/etc/fslconf/fsl.sh
 PATH=${FSLDIR}/bin:${PATH}
 export FSLDIR PATH
 source $FSLDIR/etc/fslconf/fsl-devel.sh
 export FSLDEVDIR=$FSLDIR/
 
-export PATH=$PATH:/bin/tpcclib/build/bin
+source /install/root/bin/thisroot.sh
+
+export PATH=$PATH:/code/c_programs/tpcclib-master/build/bin
 export PATH=$PATH:/bin/fsl/install/bin
 export PATH=$PATH:/bin/RTK-1.4.0/build/install/bin
 export PATH=$PATH:/code/c_programs/brain_phantom-master
@@ -139,35 +141,37 @@ export PATH=$PATH:/code/c_programs/UnbiasedNonLocalMeans/bin/Linux
 export PATH=$PATH:/bin/fsl/install/bin
 export PATH=$PATH:/bin/PETPVC/build/install/bin
 export PATH=$PATH:/bin/plastimatch-1.9.0/build
+export PATH=$PATH:/install/itksnap-3.8.0-20190612-Linux-gcc64/bin
 
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/tpcclib/build/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/RTK-1.4.0/build/install/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/SimpleElastix/build/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/SimpleElastix/build/Elastix-build/bin
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/kernel
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/listmode/idl/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/listmode/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/mc_code/idl/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/mc_code/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/nonlocalmeans
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/registrationbase/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/rtkwrapper_gpu
-# export LIBRARY_PATH=$LIBRARY_PATH:/code/c_programs/tpcclib-master/build/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/armadillo-9.800.3/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/dlib-19.19/install/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/elastix-4.9.0/install/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/fsl/install/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/InsightToolkit-4.13.2/build/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/InsightToolkit-4.9.1/build/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/InsightToolkit-5.0.1/build/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/libcmaes-master/install/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/mcmc-master/install/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/optim-master/build/lib
-export LIBRARY_PATH=$LIBRARY_PATH:/bin/pagmo2/build
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/tpcclib/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/RTK-1.4.0/build/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/SimpleElastix/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/SimpleElastix/build/Elastix-build/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/kernel
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/listmode/idl/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/listmode/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/mc_code/idl/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/mc_code/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/nonlocalmeans
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/registrationbase/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/rtkwrapper_gpu
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/code/c_programs/tpcclib-master/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/armadillo-9.800.3/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/dlib-19.19/install/lib
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/install/elastix-4.9.0/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/fsl/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/InsightToolkit-4.13.2/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/InsightToolkit-4.9.1/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/InsightToolkit-5.0.1/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/libcmaes-master/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/mcmc-master/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/optim-master/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/bin/pagmo2/build
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/install/itksnap-3.8.0-20190612-Linux-gcc64/lib/
 
 
-export ELASTIX_INCLUDE_PATH=/bin/elastix-4.9.0/install/include
+#export ELASTIX_INCLUDE_PATH=/install/elastix-4.9.0/install/include
 export EIGEN3_INCLUDE_PATH=/bin/eigen-3.3.7/Eigen/src
 export EIGEN_INCLUDE_PATH=/bin/eigen-3.3.7
 export DLIB_INCLUDE_PATH=/bin/dlib-19.19/install/include/dlib
@@ -177,19 +181,18 @@ export PAGMO_INCLUDE_PATH=/bin/pagmo2/include
 export OPTIM_INCLUDE_PATH=/bin/optim-master/include
 export MCMC_INCLUDE_PATH=/bin/mcmc-master/include
 export SPLINE_USE_FILE=/bin/spline-master/src
-export TPC_INCLUDE_PATH=/bin/tpcclib/build/lib/include
+#export TPC_INCLUDE_PATH=/bin/tpcclib/build/lib/include
+export TPC_INCLUDE_PATH=/code/c_programs/tpcclib-master/build/lib/include
 export CMAES_INCLUDE_PATH=/bin/libcmaes-master/install/include/libcmaes
-export TPC_LIB_PATH=/bin/tpcclib/build/lib
+#export TPC_LIB_PATH=/bin/tpcclib/build/lib
+export TPC_LIB_PATH=/code/c_programs/tpcclib-master/build/lib
 export MCMC_LIB_PATH=/bin/mcmc-master/install/lib
 
 export FREESURFER_HOME=/usr/local/freesurfer
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 alias sudo='sudo '
-alias imagej='/bin/Fiji.app/ImageJ-linux64'
-# alias smartgit='/bin/smartgit/bin/smartgit.sh'
+alias imagej='/install/Fiji.app/ImageJ-linux64'
+alias smartgit='/install/smartgit/bin/smartgit.sh'
 alias vscode='code'
-
-
-
 
