@@ -1,3 +1,5 @@
+addpath(genpath('/code/matlab/ENIGMA-2.0.0'))
+addpath(genpath('/code/matlab/minepy-1.2.6/matlab'))
 addpath(genpath('/code/matlab/magia'))
 addpath(genpath('/code/matlab/spm12'))
 addpath(genpath('/code/matlab/general'))
